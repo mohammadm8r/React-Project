@@ -53,16 +53,6 @@
 }
 
 
-ul {
-	display: inline-block;
-	/* list-style-type: none; */
-}
-
-li {
-	display: inline-block;
-	text-align: center;
-}
-
 
 .pagination {
   font-family: Shabnam;
@@ -97,142 +87,423 @@ li {
 	text-decoration: none;
 }
 
-
-.main{
-    position: relative;
-    background:url("./mocks/pizza.jpg");
-    background-position-x: -6%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-top: .25%;
+.main {
+  position: absolute;
+  background-image: url('./mocks/pizza.jpg');
+  background-size: 30rem 25rem;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  margin-top: .2%;
 }
 
-p.text {
-    font-family: Shabnam-Bold, sans-serif;
-    font-size: 15pt;
+.up {
+  position: relative;
+  margin-top: 3%;
 }
-
-p.under-text{
-    font-family: Shabnam-Bold, sans-serif;
-    font-size: 8pt;
-    color: #777e83;
-    margin-top: 1px;
-}
-
-.dropdown-box {
-  background-color: white;
-  font-family: Shabnam;
-}
-
-.btn-group {
+.up_searchBar {
+  width: 50%;
+  height: auto;
+  align-items: center;
   text-align: center;
-  direction: rtl;
+  margin-right: 25%;
+}
+.headerup {
+  margin-top: 5%;
+  font-family: Shabnam-Bold;
+  font-size: 20pt;
+}
+.headerdown {
+  margin-top: 1%;
+  font-family: Shabnam;
+  font-size: 9pt;
+  color: gray;
+}
+
+.legend {
+  margin-top: -2%;
+}
+
+.inputs {
+  margin-top: 0;
+  width: 100%;
+  height: 250%;
+  padding: 1rem;
+}
+
+.city_select {
+  font-family: Shabnam-Bold;
+  font-size: 10pt;
+  padding: 2%;
+  border: 1px solid #e2e2e2;
+  border-radius: .7rem;
+}
+.area_select {
+  font-family: Shabnam-Bold;
+  font-size: 10pt;
+  padding: 2%;
+  border: 1px solid #e2e2e2;
+  border-radius: .7rem;
+  margin-right: .5rem;
+}
+.dropbtn {
+  font-family: Shabnam;
+  background-color: white;
+  color: black;
+  padding: 16%;
+  font-size: 10pt;
+  border: none;
+  cursor: pointer;
 }
 
 .dropdown {
-  direction: ltr;
+  font-family: Shabnam;
+  position: relative;
+  display: inline-block;
 }
 
-#last-search {
-    color: #e1e1e1;
-    font-family: Shabnam-Bold, sans-serif;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+
+
+.restaurant {
+  direction: rtl;
+  position: relative;
+  /* background-position-x: -6%; */
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* margin-top: .25%; */
+}
+
+.restaurantSearch {
+  border: 1px solid #e2e2e2;
+  font-family: Shabnam;
+  padding-right: 2rem;
+  color: gray;
+  font-size: 10pt;
+  width: 40%;
+}
+
+.filters {
+  font-family: Shabnam;
+  font-size: 11pt;
+}
+.filter {
+  color: gray;
+  font-size: 9pt;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.foodSearch {
+  padding: 1%;
+  color: gray;
+  border: 1px solid #e2e2e2;
+  width: 96%;
+  font-size: 8pt;
+  background-color: #e2e2e2;
+}
+
+.number {
+  direction: rtl;
+  text-align: right;
+  font-family: Shabnam;
+  margin-right: 10rem;
+  padding: 0 2rem;
+  border-bottom: 1px solid #e2e2e2;
+}
+#_a123 {
+  font-size: 15pt;
+}
+#_b456 {
+  font-family: Shabnam-Bold;
+  font-size: 15pt;
+}
+#_c789 {
+  font-size: 15pt;
+}
+
+.restaurant-parts {
+  margin-left: 5%;
+}
+
+.color {
+  color: #ffc300;
+  padding-left: 1%;
+}
+
+.name-font {
+  font-family: Shabnam-Bold;
+  font-size: 20pt;
+  min-width: .1%;
+}
+
+.name-font1 {
+  font-family: Shabnam-Bold;
+  font-size: 10pt;
+}
+.address {
+  font-family: Shabnam;
+  font-size: 11pt;
+}
+
+.rest-hover:hover {
+  box-shadow: 20px 8px 20px 0 rgba(0.2,0.2,0,0.2);
+  cursor: pointer;
+}
+
+.button {
+    text-align: center;
+    font-family: Shabnam;
+    border-radius: 50px;
+    margin-right: 30%;
+    padding: 1% 8%;
+    background-color: white;
+    color: #d40062;
+    border-color: #8b00af;
+    border-width: 1px;
     font-size: 10pt;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+    cursor: pointer;
 }
 
-#reyhoon {
+.button:hover {
+  box-shadow: 1px 10px 10px 1px rgba(0.3,0.3,0.3,0.3);
+  transition: 400ms;
+  background: #e2e2e2;
+}
+
+.fi:hover{
+  box-shadow: 1px 10px 10px 1px rgba(0.3,0.3,0.3,0.3);
+  transition: 400ms;
+  cursor: pointer;
+}
+
+.closed .rest-hover {
+  background-color: rgba(0,0,0,.04);
+}
+.closed .button {
+  display: none;
+}
+
+.food_back {
+  min-width: 100%;
+  max-width: 100%;
+  height: 400px;
+}
+
+.rest_info {
+    border-radius: .4rem .4rem 0 0;
+    background-color: #fff;
+    box-shadow: 0 0.4rem 1.6rem 0 rgba(0,0,0,.11);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.info {
+  padding: 4rem 0;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.ols {
+  font-family: Shabnam;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0,0%,100%,.9);
+  border-radius: .4rem;
+  padding: 0 1rem;
+  display: flex!important;
+  position: absolute;
+  /* top: -4rem; */
+  list-style: none;
+}
+
+.item_list {
+  display: flex;
+  font-family: Shabnam;
+  align-items: center;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+.rest_page {
+  margin-top: -10%;
+}
+
+.rest_page .rest-hover {
+  padding-left: 15rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  padding-right: 15rem;
+}
+
+.rest-img {
   text-align: center;
 }
 
+.text-info {
+  padding: 20rem;
+  style:none;
+}
 
-.bottom-items{
-    display: flex;
-    flex-basis: 60%;
-    max-width: 80rem;
-    flex-direction: row-reverse;
-    text-align: center;
+.men_com {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  bottom: 0;
+  margin-right: 28%;
+  padding-bottom: 4%;
+  margin-top: -7rem;
+  font-family: Shabnam;
+  color: gray;
+  width: 43.11%;
 }
-.bottom-items li {
-    text-align: right;
+
+.men_com::before {
+  content: "";
+  width: 100%;
+  height: .1rem;
+  background-image: radial-gradient(circle at 51% 0,#f3f3f3,#e9e9e9 62%,hsla(0,0%,89%,0));
 }
-.bott-items-ul:before{
-    height: .3rem;
-    content:"";
-    position: relative;
-    bottom: 1.5rem;
+input {
+  border: none;
+  font-family: Shabnam;
+  padding-right: 1rem;
+  color: gray;
+  font-size: 10pt;
+  width: 40%;
+  border-bottom: solid;
+  border-color: gray;
+  border-width: 1px;
 }
-.first:before {
-    background: #ffc300;
+.myinput {
+  border: none;
+  font-family: Shabnam;
+  padding-right: 1rem;
+  color: gray;
+  font-size: 10pt;
+  width: 80%;
 }
-.second:before {
-    background: #ff0613;
+.men_com a{
+  text-decoration: none;
+  color: gray;
 }
-.third:before {
-    background: #d40062;
+
+
+.titles {
+  font-family: Shabnam-Bold;
+  font-size: 20pt;
+  padding-top: 2rem;
 }
-.fourth:before {
-    background: #8b00af;
+
+.infos button{
+  text-align: right;
+  font-size: 8pt;
 }
-.bott-items-ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0 1.5rem;
-    padding-top: 2rem;
-    flex: 1 1;
-    text-align: right;
-    list-style: none;
+
+.shadowni:hover {
+  box-shadow: 1px 10px 10px 1px rgba(0.3,0.3,0.3,0.3);
+  transition: 400ms;
 }
-.bott-items-li{
-    color: #fff;
-    margin-bottom: 1.5rem;
-    font-family: Shabnam;
-    font-size: 10pt;
+
+.food_name {
+  font-family: Shabnam-Bold;
 }
-.black-icons{
-    justify-content: right;
-    display: inline-block;
-    text-align: right;
+.food_cost {
+  font-family: Shabnam-Bold;
 }
-.li-links {
-    margin: .5rem auto;
-    border: 1px solid #4a4a4a;
-    border-radius: .4rem;
-    width: 9rem;
-    height: 3rem;
-    cursor: pointer;
-    text-decoration: none;
+
+.desc {
+  font-family: Shabnam;
+  font-size: 9pt;
 }
-.li-links img {
-    width: 9rem;
-    height: 3rem;
-    border-radius: .4rem;
-    text-decoration: none;
+
+.rest_etelat {
+  font-family: Shabnam-Bold;
+  border-bottom: solid;
+  border-color: gray;
+  border-width: 1px;
 }
-.bott-items-ul li a {
-    text-decoration: none;
-    color: #9b9b9b;
+
+.ete {
+  border-bottom: 1px solid #e2e2e2;
 }
-.outside-bottom {
-    display: flex;
-    flex-direction: row-reverse;
-    padding-top: .5rem;
-    padding-bottom: 2rem;
-    padding-left: 40rem;
-    background-color: #202020;
+
+.map {
+  margin-top: 20%;
+  width: 100%;
 }
-.logo-image{
-    width: 10%;
-    height: 120px;
-    text-align: center;
-    padding-left: 20px;
+
+.titles2 {
+  font-family: Shabnam-Bold;
+  font-size: 12pt;
+  padding-top: 4%;
 }
-.all-right {
-    font-family: sans-serif;
-    font-size: 13px;
-    color: grey;
-    direction: ltr;
-    text-align: right;
-    display: flex;
-    flex-direction: row;
-    padding: 3rem 0 2rem;
-    background-color: #191919;
+
+.sefaresh {
+  font-style: Shabnam;
+  font-size: 10pt;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.comments-top {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.nazar {
+  font-family: Shabnam-Bold;
+  font-size: 9pt;
+  color: #9b9b9b;
+}
+
+.progresss{
+  border-top: 1px solid #e2e2e2;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.titles3 {
+  font-family: Shabnam-Bold;
+  color: gray;
+  font-size: 12pt;
+}
+
+.prog {
+  direction: ltr;
 }
