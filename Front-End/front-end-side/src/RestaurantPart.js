@@ -14,7 +14,7 @@ let get_int = (rate) => {
 
 function RestaurantPart(props){
   return (
-    <div className="col-md-4 p-2">
+
       <div className="shadow p-3 mb-5 rounded rest-hover">
         <div className="row">
           <div className="col-md-3">
@@ -47,7 +47,6 @@ function RestaurantPart(props){
           </button>
         </div>
       </div>
-    </div>
   )
 }
 
