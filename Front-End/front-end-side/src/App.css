@@ -545,6 +545,15 @@ img {
 Legend img {
   width: 40%;
 }
+
+.ant-affix{
+  z-index: 300;
+}
+.ant-affix .men_com{
+  background-color: white;
+  height: 25%;
+}
+
 .titles2 {
   font-family: Shabnam-Bold;
   font-size: 12pt;
