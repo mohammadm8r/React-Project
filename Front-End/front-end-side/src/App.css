@@ -538,7 +538,13 @@ input:focus::-webkit-input-placeholder {
     width: 20%;
   }
 }
+img {
+  width: 100%;
+}
 
+Legend img {
+  width: 40%;
+}
 .titles2 {
   font-family: Shabnam-Bold;
   font-size: 12pt;

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
 import LocalSearch from './LocalSearch'
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import CheckBox from './CheckBox'
+import Checkbox from './CheckBox'
 
 
 class Restaurant extends Component {
@@ -19,7 +19,10 @@ class Restaurant extends Component {
      searchString: '',
      curTime: null,
      closed_rests: [],
-     checked: false
+     checked: false,
+     cates: [],
+     checked_items:[],
+     unchecked_items:[]
    }
 
  }
@@ -32,7 +35,11 @@ class Restaurant extends Component {
       (result)=>{
         console.log(result)
         this.setState({
-          all_restaurants : result
+          all_restaurants : result,
+          cates: result.map(i=> i.categories).flat().map(i => i.name ).filter(function (value, index, self) {
+            return self.indexOf(value) === index;
+          }),
+          unchecked_items : this.state.cates
         })
       }
     )
@@ -56,12 +63,29 @@ class Restaurant extends Component {
    }
 
  handleCheckboxChange = (event) =>{
-     this.setState({ checked: event.target.checked });
+    if(event.target.checked){
+      var array = [...this.state.unchecked_items];
+      var index = array.indexOf(event.target.value)
+        if (index !== -1) {
+          array.splice(index, 1);
+          this.setState({unchecked_items: array});
+        }
+      this.setState({ checked: event.target.checked })
+      this.state.checked_items.push(event.target)
+    }
+    else{
+      this.setState({ checked: event.target.checked })
+      this.state.checked_items.pop(event.target)
+      this.state.unchecked_items.push(event.target.value)
+    }
    }
 
 
 
   render () {
+    console.log(this.state.checked_items)
+    console.log('----------------------')
+    console.log(this.state.unchecked_items)
     var searchString = this.state.searchString.trim().toLowerCase();
     var closing = this.state.all_restaurants.filter(function(i){
       if((i.closing_time < new Date().getHours()) || (i.opening_time > new Date().getHours())){
@@ -90,7 +114,7 @@ class Restaurant extends Component {
       this.state.closed_rests = closing
     }
 
-
+    console.log(this.state)
     return (
       <div>
         <div>
@@ -128,14 +152,21 @@ class Restaurant extends Component {
                 </div>
 
                 <div className="row">
-                  {/*<label>
-                    <Checkbox
-                      checked={this.state.checked}
-                      onChange={this.handleCheckboxChange}
-                    />
-                    <span>Label Text</span>
-                  </label>
-                  */}
+                <ul>
+                  {this.state.cates.map(cat => (
+                    <li>
+                      <label>
+                          <Checkbox
+                            checked={this.state.checked}
+                            onChange={this.handleCheckboxChange}
+                          />
+                          < span style={{ marginLeft: 8 }}>{cat}</span>
+                      </label>
+                    </li>
+
+                  ))
+                  }
+                  </ul>
                 </div>
 
               </div>
@@ -175,8 +206,14 @@ class Restaurant extends Component {
           <div className="col-md-9 closed">
             <h1 className="name-font">رستوران‌های بسته</h1>
             <div className="row">
-              <div className="col-md-4">
-                {this.state.closed_rests.map(item=>(
+            {this.state.closed_rests.map(item=>(
+              <div className="col-md-4 p-2">
+                <Link to={{
+                    pathname: '/restaurant',
+                    state: {
+                      info:item
+                    }
+                }} activeClassName={{textDecoration: "none"}}>
                   <RestaurantPart
                     name={item.name}
                     logo={item.logo}
@@ -186,8 +223,9 @@ class Restaurant extends Component {
                     )).join(' . ')}
                     address = {item.address.address_line}
                   />
-                ))}
+                </Link>
               </div>
+            ))}
             </div>
           </div>
         </div>
