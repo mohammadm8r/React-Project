@@ -545,7 +545,10 @@ img {
 Legend img {
   width: 40%;
 }
-
+.up img{
+  height: auto;
+  width: 10%;
+}
 .ant-affix{
   z-index: 300;
 }

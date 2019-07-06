@@ -39,7 +39,9 @@ class Restaurant extends Component {
           cates: result.map(i=> i.categories).flat().map(i => i.name ).filter(function (value, index, self) {
             return self.indexOf(value) === index;
           }),
-          unchecked_items : this.state.cates
+          unchecked_items : result.map(i=> i.categories).flat().map(i => i.name ).filter(function (value, index, self) {
+            return self.indexOf(value) === index;
+          })
         })
       }
     )
@@ -64,18 +66,19 @@ class Restaurant extends Component {
 
  handleCheckboxChange = (event) =>{
     if(event.target.checked){
-      var array = [...this.state.unchecked_items];
-      var index = array.indexOf(event.target.value)
-        if (index !== -1) {
-          array.splice(index, 1);
-          this.setState({unchecked_items: array});
-        }
-      this.setState({ checked: event.target.checked })
-      this.state.checked_items.push(event.target)
+      // var array = [...this.state.unchecked_items];
+      // var index = array.indexOf(event.target.value)
+      //   if (index !== -1) {
+      //     array.splice(index, 1);
+      //     this.setState({unchecked_items: array});
+      //   }
+      this.state.unchecked_items = this.state.unchecked_items.filter(i => i!== event.target.value)
+      //this.setState({ checked: event.target.checked })
+      this.state.checked_items.push(event.target.value)
     }
     else{
-      this.setState({ checked: event.target.checked })
-      this.state.checked_items.pop(event.target)
+      //this.setState({ checked: event.target.checked })
+      this.state.checked_items = this.state.checked_items.filter(i => i!== event.target.value)
       this.state.unchecked_items.push(event.target.value)
     }
    }
@@ -95,7 +98,7 @@ class Restaurant extends Component {
     });
 
     var opening = this.state.all_restaurants.filter(function(i){
-      if((i.closing_time > new Date().getHours()) && (i.opening_time < new Date().getHours())){
+      if((i.closing_time > new Date().getHours()) || (i.opening_time < new Date().getHours())){
         return true
       }
       return false
@@ -153,19 +156,33 @@ class Restaurant extends Component {
 
                 <div className="row">
                 <ul>
-                  {this.state.cates.map(cat => (
+                  {this.state.checked_items.map(cat => (
                     <li>
                       <label>
                           <Checkbox
-                            checked={this.state.checked}
+                            checked={true}
                             onChange={this.handleCheckboxChange}
+                            value={cat}
                           />
-                          < span style={{ marginLeft: 8 }}>{cat}</span>
+                          <span style={{ marginLeft: 8 }}>{cat}</span>
                       </label>
                     </li>
 
                   ))
                   }
+                  {this.state.unchecked_items.map(cat => (
+                    <li>
+                      <label>
+                          <Checkbox
+                            checked={false}
+                            onChange={this.handleCheckboxChange}
+                            value={cat}
+  />
+                          <span style={{ marginLeft: 8 }}>{cat}</span>
+                      </label>
+                    </li>
+
+                  ))}
                   </ul>
                 </div>
 
